@@ -7,11 +7,12 @@ import Details from "../pages/Details/Details";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-
+import Modal from "../components/Modal/Modal";
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <Modal />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="search" element={<Search />} />

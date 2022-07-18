@@ -7,12 +7,12 @@ const useAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const login = (mail, password, url) => {
+  const login = (email, password, url) => {
     (async () => {
       try {
         setIsLoading(true);
         const response = await axios.post(url, {
-          mail,
+          email,
           password,
           returnSecureToken: true,
         });

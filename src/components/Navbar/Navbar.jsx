@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../store/auth-slicer";
 const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     navigate("/search", { state: query });
@@ -38,7 +42,7 @@ const Navbar = () => {
             Search
           </button>
         </form>
-        <div>
+        <div className={!isLoggedIn ? "d-block" : "d-none"}>
           <button
             className="btn btn-outline-primary"
             type="button"
@@ -52,6 +56,18 @@ const Navbar = () => {
             onClick={() => navigate("/register")}
           >
             Register
+          </button>
+        </div>
+        <div className={isLoggedIn ? "d-block" : "d-none"}>
+          <button
+            className="btn btn-outline-primary"
+            type="button"
+            onClick={() => {
+              dispatch(authActions.logout());
+              navigate("/");
+            }}
+          >
+            Logout
           </button>
         </div>
       </div>

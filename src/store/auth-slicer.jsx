@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlicer = createSlice({
   name: "auth",
   initialState: {
-    token: localStorage.getItem("token") || "",
+    token: "",
     isLoggedIn: false,
   },
   reducers: {

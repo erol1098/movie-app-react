@@ -22,6 +22,7 @@ const Login = () => {
             className="form-control"
             id="floatingInput"
             placeholder="name@example.com"
+            value={mail}
             onChange={(e) => setMail(e.target.value)}
           />
           <label htmlFor="floatingInput">Email address</label>
@@ -32,6 +33,7 @@ const Login = () => {
             className="form-control"
             id="floatingPassword"
             placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor="floatingPassword">Password</label>
