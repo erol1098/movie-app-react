@@ -12,7 +12,7 @@ const Home = () => {
   const movies = useSelector((state) => state.movie.discover);
   console.log(movies);
   return (
-    <main className="d-flex flex-wrap gap-3">
+    <main className="container d-flex flex-wrap gap-3 justify-content-center mt-5">
       {movies?.map((movie) => (
         <Card key={movie.id} info={movie} />
       ))}

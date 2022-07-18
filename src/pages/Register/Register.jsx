@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Modal from "../../components/Modal/Modal";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  const navigate = useNavigate();
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useAuth();
@@ -11,12 +13,14 @@ const Register = () => {
     e.preventDefault();
     console.log(email, password);
     login(email, password, URL);
+    navigate(-1);
   };
   return (
     <>
       {error && <p>{error.response.data.error.message}</p>}
+      <Modal />
       <form className="container mt-5 w-25" onSubmit={submitHandler}>
-        {/* <div className="form-floating mb-3">
+        <div className="form-floating mb-3">
           <input
             type="text"
             className="form-control"
@@ -33,7 +37,7 @@ const Register = () => {
             placeholder="Enter your last name"
           />
           <label htmlFor="floatingText2">Last name</label>
-        </div> */}
+        </div>
         <div className="form-floating mb-3">
           <input
             type="email"

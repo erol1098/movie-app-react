@@ -25,7 +25,7 @@ const App = () => {
   // }, [discoverMovies]);
   // console.log(result);
 
-  return <AppRouter>App</AppRouter>;
+  return <AppRouter />;
 };
 
 export default App;

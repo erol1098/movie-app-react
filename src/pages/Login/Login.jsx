@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useAuth();
@@ -10,6 +11,7 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     login(mail, password, URL);
+    navigate(-1);
   };
 
   return (

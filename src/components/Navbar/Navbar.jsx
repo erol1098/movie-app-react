@@ -14,7 +14,7 @@ const Navbar = () => {
     navigate("/search", { state: query });
   };
   return (
-    <nav className="navbar sticky-top bg-light">
+    <nav className="navbar sticky-top bg-light px-5 py-2">
       <div className="container-fluid py-2">
         <Link className="navbar-brand" to="/">
           <img
