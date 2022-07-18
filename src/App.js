@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AppRouter from "./routes/AppRouter";
 // import styles from "./App.module.css"
-// import useHttp from "./hooks/useHttp";
-// import { useSelector } from "react-redux";
+
 const App = () => {
   // const { searchMovies, getMovieDetails, discoverMovies } = useHttp();
   //? Search Movies

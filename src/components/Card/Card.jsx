@@ -14,7 +14,7 @@ const Card = ({ info }) => {
     <div
       className="card pointer"
       style={{ width: "18rem" }}
-      onClick={() => navigate(`/details/:${id}`)}
+      onClick={() => navigate(`/details/:${id}`, { state: id })}
     >
       <img
         src={`https://image.tmdb.org/t/p/w500${url}`}

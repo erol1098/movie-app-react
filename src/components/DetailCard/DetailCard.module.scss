@@ -1,0 +1,12 @@
+.card {
+  width: 30rem;
+  background-color: inherit;
+  color: white;
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+
+  & .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}

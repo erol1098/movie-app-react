@@ -1,0 +1,19 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+  // background-image: url("https://image.tmdb.org/t/p/w500/qTkJ6kbTeSjqfHCFCmWnfWZJOtm.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  & .gradient {
+    width: 100%;
+    height: 100%;
+    // opacity: 0.8;
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  }
+}
