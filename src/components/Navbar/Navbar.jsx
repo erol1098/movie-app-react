@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
@@ -13,8 +14,8 @@ const Navbar = () => {
       <div className="container-fluid py-2">
         <Link className="navbar-brand" to="/">
           <img
-            src="/docs/5.2/assets/brand/bootstrap-logo.svg"
-            alt=""
+            src={logo}
+            alt="logo"
             width="30"
             height="24"
             className="d-inline-block align-text-top"
@@ -37,9 +38,22 @@ const Navbar = () => {
             Search
           </button>
         </form>
-        <button className="btn btn-outline-success" type="button">
-          Login
-        </button>
+        <div>
+          <button
+            className="btn btn-outline-primary"
+            type="button"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </button>
+          <button
+            className="btn btn-outline-primary ms-2"
+            type="button"
+            onClick={() => navigate("/register")}
+          >
+            Register
+          </button>
+        </div>
       </div>
     </nav>
   );
