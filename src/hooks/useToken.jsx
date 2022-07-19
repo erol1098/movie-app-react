@@ -7,6 +7,7 @@ const useToken = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const getUserInfo = (response) => {
+    console.log(response);
     const userInfo = jwtDecode(response.credential);
     console.log(userInfo);
     dispatch(authActions.login({ token: userInfo.jti, expire: userInfo.exp }));

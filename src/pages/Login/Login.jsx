@@ -7,6 +7,7 @@ const Login = () => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useAuth();
+  const { getUserInfo } = useToken();
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY;
   const URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${AUTH_KEY}`;
   const submitHandler = (e) => {
@@ -14,7 +15,6 @@ const Login = () => {
     login(mail, password, URL);
   };
 
-  const { getUserInfo } = useToken();
   useEffect(() => {
     /* global google*/
     google.accounts.id.initialize({
@@ -26,6 +26,7 @@ const Login = () => {
       theme: "outline",
       size: "large",
     });
+    google.accounts.id.prompt();
   }, [getUserInfo]);
 
   return (
@@ -38,7 +39,11 @@ const Login = () => {
         />
       )}
 
-      <form className="container mt-5 w-25" onSubmit={submitHandler}>
+      <form
+        className="container mt-5 w-100"
+        style={{ maxWidth: "40rem" }}
+        onSubmit={submitHandler}
+      >
         <div className="form-floating mb-3">
           <input
             type="email"

@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import ShowModal from "../../components/Modal/Modal";
 import useToken from "../../hooks/useToken";
-
 const Register = () => {
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
+
   const { login, isLoading, error } = useAuth();
+
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY;
   const URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${AUTH_KEY}`;
+  // const setURL = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${AUTH_KEY}`;
   const submitHandler = (e) => {
     e.preventDefault();
     login(email, password, URL);
@@ -42,6 +46,8 @@ const Register = () => {
             className="form-control"
             id="floatingText1"
             placeholder="Enter your first name"
+            value={first}
+            onChange={(e) => setFirst(e.target.value)}
           />
           <label htmlFor="floatingText1">First name</label>
         </div>
@@ -51,6 +57,8 @@ const Register = () => {
             className="form-control"
             id="floatingText2"
             placeholder="Enter your last name"
+            value={last}
+            onChange={(e) => setLast(e.target.value)}
           />
           <label htmlFor="floatingText2">Last name</label>
         </div>

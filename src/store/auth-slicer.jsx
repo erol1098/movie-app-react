@@ -22,6 +22,7 @@ const authSlicer = createSlice({
     logout(state) {
       state.isLoggedIn = false;
       state.userInfo = { name: "", image: "" };
+      state.token = "";
       localStorage.removeItem("token");
       localStorage.removeItem("willExpire");
       localStorage.removeItem("savedList");

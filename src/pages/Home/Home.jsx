@@ -10,12 +10,13 @@ const Home = () => {
   }, [discoverMovies]);
 
   const movies = useSelector((state) => state.movie.discover);
-  console.log(movies);
   return (
-    <main className="container d-flex flex-wrap gap-3 justify-content-center mt-5">
-      {movies?.map((movie) => (
-        <Card key={movie.id} info={movie} />
-      ))}
+    <main className="container mt-5">
+      <div className="row mx-2">
+        {movies?.map((movie) => (
+          <Card key={movie.id} info={movie} />
+        ))}
+      </div>
     </main>
   );
 };

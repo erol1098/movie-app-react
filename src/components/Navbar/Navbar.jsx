@@ -16,16 +16,19 @@ const Navbar = () => {
   };
   return (
     <nav className="navbar sticky-top bg-light px-5 py-2">
-      <div className="container-fluid py-2">
-        <Link className="navbar-brand" to="/">
+      <div className="container-fluid py-2 d-flex align-items-stretch flex-column gap-3  flex-md-row align-items-md-center">
+        <Link
+          className="navbar-brand d-flex align-items-center justify-content-center gap-3"
+          to="/"
+        >
           <img
             src={logo}
             alt="logo"
-            width="30"
-            height="24"
-            className="d-inline-block align-text-top"
+            width="36"
+            // height="24"
+            className="d-inline-block m-0"
           />
-          {"   "}Seeker
+          <h2 className="m-0">Seeker</h2>
         </Link>
         <form
           className="d-flex justify-content-between"
@@ -43,7 +46,12 @@ const Navbar = () => {
             Search
           </button>
         </form>
-        <div className={!isLoggedIn ? "d-block" : "d-none"}>
+
+        <div
+          className={`${
+            !isLoggedIn ? "d-block" : "d-none"
+          } d-flex flex-column gap-2 flex-md-row   `}
+        >
           <button
             className="btn btn-outline-primary"
             type="button"
@@ -52,7 +60,7 @@ const Navbar = () => {
             Login
           </button>
           <button
-            className="btn btn-outline-primary ms-2"
+            className="btn btn-outline-primary"
             type="button"
             onClick={() => navigate("/register")}
           >
@@ -65,8 +73,8 @@ const Navbar = () => {
             isLoggedIn ? "d-block" : "d-none"
           } d-flex align-items-center gap-3`}
         >
-          <div className="d-flex gap-2 align-items-center justify-content-center">
-            <p>{name || "erol"}</p>
+          <div className="d-none d-md-flex gap-2 align-items-center justify-content-center ">
+            <p className="lead m-0 d-none d-lg-block">{name || "erol"}</p>
             <img
               src={
                 image || `https://ui-avatars.com/api/?name=${name || "erol"}`
@@ -76,16 +84,18 @@ const Navbar = () => {
               className="rounded-circle"
             />
           </div>
-          <button
-            className="btn btn-outline-primary"
-            type="button"
-            onClick={() => {
-              dispatch(authActions.logout());
-              navigate("/");
-            }}
-          >
-            Logout
-          </button>
+          <div className="w-100">
+            <button
+              className="btn btn-outline-primary w-100"
+              type="button"
+              onClick={() => {
+                dispatch(authActions.logout());
+                navigate("/");
+              }}
+            >
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </nav>
