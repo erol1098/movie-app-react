@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../store/auth-slicer";
 import axios from "axios";
 const useAuth = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -20,6 +23,7 @@ const useAuth = () => {
         dispatch(
           authActions.login(response.data.idToken, response.data.expiresIn)
         );
+        navigate(-1);
       } catch (error) {
         setIsLoading(false);
         setError(error);

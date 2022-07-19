@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import ShowModal from "../../components/Modal/Modal";
 const Login = () => {
-  const navigate = useNavigate();
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useAuth();
@@ -11,12 +10,18 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     login(mail, password, URL);
-    navigate(-1);
   };
 
   return (
     <>
-      {error && <p>{error.response.data.error.message}</p>}
+      {error && (
+        <ShowModal
+          flag={true}
+          title={"Authentication Error"}
+          message={error.response.data.error.message}
+        />
+      )}
+
       <form className="container mt-5 w-25" onSubmit={submitHandler}>
         <div className="form-floating mb-3">
           <input
