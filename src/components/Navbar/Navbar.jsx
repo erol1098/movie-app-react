@@ -15,7 +15,7 @@ const Navbar = () => {
     navigate("/search", { state: query });
   };
   return (
-    <nav className="navbar sticky-top bg-light px-5 py-2">
+    <nav className="navbar sticky-top bg-light px-2 py-2">
       <div className="container-fluid py-2 d-flex align-items-stretch flex-column gap-3  flex-md-row align-items-md-center">
         <Link
           className="navbar-brand d-flex align-items-center justify-content-center gap-3"
@@ -24,16 +24,17 @@ const Navbar = () => {
           <img
             src={logo}
             alt="logo"
-            width="36"
+            width="50"
             // height="24"
             className="d-inline-block m-0"
           />
-          <h2 className="m-0">Seeker</h2>
+          <h2 className="m-0 text-danger">BlockBuster</h2>
         </Link>
         <form
           className="d-flex justify-content-between"
           role="search"
           onSubmit={submitHandler}
+          style={{ height: "2.8rem" }}
         >
           <input
             className="form-control me-2"
@@ -74,10 +75,11 @@ const Navbar = () => {
           } d-flex align-items-center gap-3`}
         >
           <div className="d-none d-md-flex gap-2 align-items-center justify-content-center ">
-            <p className="lead m-0 d-none d-lg-block">{name || "erol"}</p>
+            <p className="lead m-0 d-none d-lg-block">{name}</p>
             <img
               src={
-                image || `https://ui-avatars.com/api/?name=${name || "erol"}`
+                image
+                // || `https://ui-avatars.com/api/?name=${name || "erol"}`
               }
               alt=""
               width={60}
