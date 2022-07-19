@@ -13,7 +13,7 @@ const DetailCard = ({ info }) => {
         <h5 className="card-title display-6 mb-5 fw-bold">{title}</h5>
         <h6 class="card-subtitle text-secondary mb-3">
           {`${new Date(date).getFullYear()} | `}
-          <span class="badge text-bg-secondary">{rating}</span>
+          <span className="badge text-bg-secondary">{rating}</span>
         </h6>
         <p className="card-text">{overview}</p>
       </div>

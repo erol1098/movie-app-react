@@ -8,6 +8,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const AppRouter = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -20,8 +21,13 @@ const AppRouter = () => {
         {!isLoggedIn && <Route path="search" element={<Login />} />}
         {isLoggedIn && <Route path="details/:id" element={<Details />} />}
         {!isLoggedIn && <Route path="details/:id" element={<Login />} />}
-        <Route path="login" element={<Login />} />
+        {!isLoggedIn && <Route path="login" element={<Login />} />}
+        {isLoggedIn && <Route path="login" element={<Navigate to={"/"} />} />}
+        {!isLoggedIn && <Route path="register" element={<Register />} />}
         <Route path="register" element={<Register />} />
+        {isLoggedIn && (
+          <Route path="register" element={<Navigate to={"/"} />} />
+        )}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

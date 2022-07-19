@@ -8,6 +8,7 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const { name, image } = useSelector((state) => state.auth.userInfo);
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -58,7 +59,23 @@ const Navbar = () => {
             Register
           </button>
         </div>
-        <div className={isLoggedIn ? "d-block" : "d-none"}>
+
+        <div
+          className={`${
+            isLoggedIn ? "d-block" : "d-none"
+          } d-flex align-items-center gap-3`}
+        >
+          <div className="d-flex gap-2 align-items-center justify-content-center">
+            <p>{name || "erol"}</p>
+            <img
+              src={
+                image || `https://ui-avatars.com/api/?name=${name || "erol"}`
+              }
+              alt=""
+              width={60}
+              className="rounded-circle"
+            />
+          </div>
           <button
             className="btn btn-outline-primary"
             type="button"

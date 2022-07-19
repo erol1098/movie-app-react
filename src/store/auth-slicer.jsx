@@ -2,10 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlicer = createSlice({
   name: "auth",
   initialState: {
-    token: "",
-    isLoggedIn: false,
+    token: localStorage.getItem("token") || "",
+    userInfo: { name: "", image: "" },
+    isLoggedIn: localStorage.getItem("token") ? true : false,
   },
   reducers: {
+    setUserInfo(state, action) {
+      state.userInfo = action.payload;
+    },
     login(state, action) {
       state.token = action.payload.token;
       state.isLoggedIn = true;
@@ -17,6 +21,7 @@ const authSlicer = createSlice({
     },
     logout(state) {
       state.isLoggedIn = false;
+      state.userInfo = { name: "", image: "" };
       localStorage.removeItem("token");
       localStorage.removeItem("willExpire");
       localStorage.removeItem("savedList");

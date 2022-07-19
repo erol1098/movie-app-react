@@ -10,8 +10,10 @@ const useToken = () => {
     const userInfo = jwtDecode(response.credential);
     console.log(userInfo);
     dispatch(authActions.login({ token: userInfo.jti, expire: userInfo.exp }));
+    dispatch(
+      authActions.setUserInfo({ name: userInfo.name, image: userInfo.picture })
+    );
     navigate(-1);
-    return { userInfo };
   };
   return { getUserInfo };
 };

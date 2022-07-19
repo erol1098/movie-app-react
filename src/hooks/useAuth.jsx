@@ -26,7 +26,7 @@ const useAuth = () => {
             expire: response.data.expiresIn,
           })
         );
-        navigate(-1);
+        navigate("/");
       } catch (error) {
         setIsLoading(false);
         setError(error);
