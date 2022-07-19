@@ -21,7 +21,10 @@ const useAuth = () => {
         });
         setIsLoading(false);
         dispatch(
-          authActions.login(response.data.idToken, response.data.expiresIn)
+          authActions.login({
+            token: response.data.idToken,
+            expire: response.data.expiresIn,
+          })
         );
         navigate(-1);
       } catch (error) {

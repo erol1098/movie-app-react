@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import ShowModal from "../../components/Modal/Modal";
+import useToken from "../../hooks/useToken";
+
 const Login = () => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +13,20 @@ const Login = () => {
     e.preventDefault();
     login(mail, password, URL);
   };
+
+  const { getUserInfo } = useToken();
+  useEffect(() => {
+    /* global google*/
+    google.accounts.id.initialize({
+      client_id:
+        "973641536091-nlvjupnjkuiofhpc72ljklfc4eflg61o.apps.googleusercontent.com",
+      callback: getUserInfo,
+    });
+    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+      theme: "outline",
+      size: "large",
+    });
+  }, [getUserInfo]);
 
   return (
     <>
@@ -54,10 +70,11 @@ const Login = () => {
             {!isLoading ? "Sign in" : "Sending Request"}
           </button>
         </div>
-        <div className="w-100">
-          <button type="button" className="btn btn-outline-info w-100">
+        <div className="w-100 d-flex justify-content-center">
+          <div id="signInDiv" className="border border-0"></div>
+          {/* <button type="button" className="btn btn-outline-info w-100">
             Create New Account
-          </button>
+          </button> */}
         </div>
       </form>
     </>
