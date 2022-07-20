@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import ShowModal from "../../components/Modal/Modal";
+import ShowModal from "../../components/UI/Modal/Modal";
 import useToken from "../../hooks/useToken";
 
 const Login = () => {
