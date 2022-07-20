@@ -2,19 +2,16 @@ import axios from "axios";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { movieActions } from "../store/movie-slice";
-import useSort from "./useSort";
 const useHttp = () => {
   const dispatch = useDispatch();
-  const { sorting } = useSort();
   const API_KEY = process.env.REACT_APP_API_KEY;
-
   const searchMovies = useCallback(
     async (query) => {
       try {
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
         );
-        dispatch(movieActions.setSearchedQuery(sorting(data.results)));
+        dispatch(movieActions.setSearchedQuery(data.results));
       } catch (error) {
         console.log(error);
       }
@@ -39,7 +36,7 @@ const useHttp = () => {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
       );
-      dispatch(movieActions.setDiscover(sorting(data.results)));
+      dispatch(movieActions.setDiscover(data.results));
     } catch (error) {
       console.log(error);
     }

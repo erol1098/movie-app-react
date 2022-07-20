@@ -9,7 +9,7 @@ function Sort() {
   const dispatch = useDispatch();
   return (
     <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0">
+      <Accordion.Item eventKey="1">
         <Accordion.Header>Sort Results</Accordion.Header>
         <Accordion.Body>
           <Form.Select

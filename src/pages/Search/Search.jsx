@@ -25,7 +25,7 @@ const Search = () => {
   return (
     <main className="container mt-5">
       <Sort />
-      <div className="row">
+      <div className="row mx-3">
         {sortedList?.map((movie) => (
           <Card key={movie.id} info={movie} />
         ))}

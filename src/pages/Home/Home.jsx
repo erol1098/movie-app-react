@@ -20,14 +20,11 @@ const Home = () => {
   }, [sortKey, movies]);
 
   return (
-    <main className="container mt-5">
+    <main className="container mt-5 ">
       <Sort />
-      <div className="row ">
-        {sortedList ? (
-          sortedList.map((movie) => <Card key={movie.id} info={movie} />)
-        ) : (
-          <div>dfdsfsfsdfd</div>
-        )}
+      <div className="row mx-3">
+        {sortedList &&
+          sortedList.map((movie) => <Card key={movie.id} info={movie} />)}
       </div>
     </main>
   );

@@ -15,7 +15,11 @@ const Navbar = () => {
     navigate("/search", { state: query });
   };
   return (
-    <nav className="navbar sticky-top bg-light px-2 py-2">
+    <nav
+      className="navbar sticky-top
+      px-2 py-2"
+      style={{ background: "linear-gradient(to right, #d3cce3, #e9e4f0)" }}
+    >
       <div className="container-fluid py-2 d-flex align-items-stretch flex-column gap-3  flex-md-row align-items-md-center">
         <Link
           className="navbar-brand d-flex align-items-center justify-content-center gap-3"
@@ -39,11 +43,12 @@ const Navbar = () => {
           <input
             className="form-control me-2"
             type="search"
-            placeholder="Search"
+            placeholder="Search a movie..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            required
           />
-          <button className="btn btn-outline-success" type="submit">
+          <button className="btn btn-success" type="submit">
             Search
           </button>
         </form>
@@ -54,14 +59,14 @@ const Navbar = () => {
           } d-flex flex-column gap-2 flex-md-row   `}
         >
           <button
-            className="btn btn-outline-primary"
+            className="btn btn-primary"
             type="button"
             onClick={() => navigate("/login")}
           >
             Login
           </button>
           <button
-            className="btn btn-outline-primary"
+            className="btn btn-primary"
             type="button"
             onClick={() => navigate("/register")}
           >
@@ -88,7 +93,7 @@ const Navbar = () => {
           </div>
           <div className="w-100">
             <button
-              className="btn btn-outline-primary w-100"
+              className="btn btn-primary w-100"
               type="button"
               onClick={() => {
                 dispatch(authActions.logout());

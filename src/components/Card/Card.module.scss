@@ -24,31 +24,3 @@
     transition: all 1s;
   }
 }
-// .card {
-//   position: relative;
-//   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-//     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-//   transition: all 3s;
-//   &:hover {
-//     .content {
-//       bottom: 0;
-//     }
-//   }
-
-//   & span {
-//     position: absolute;
-//     top: 2.5rem;
-//     left: 2rem;
-//     font-size: 1.5rem;
-//     padding: 1rem;
-//     width: 5rem;
-//   }
-//   & .content {
-//     width: 100%;
-//     position: absolute;
-//     bottom: 35rem;
-//     left: 0;
-//     overflow: auto;
-//     height: 15rem;
-//   }
-// }
