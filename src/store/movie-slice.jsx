@@ -6,7 +6,7 @@ const movieSlice = createSlice({
     searchedQuery: [],
     movieDetails: [],
     discover: [],
-    sortKey: "t",
+    sortKey: "pa",
   },
   reducers: {
     setSortKey(state, action) {

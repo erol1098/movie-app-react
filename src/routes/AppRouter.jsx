@@ -9,14 +9,11 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import Sort from "../components/Sort/Sort";
-
 const AppRouter = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   return (
     <BrowserRouter>
       <Navbar />
-      <Sort />
       <Routes>
         <Route path="/" element={<Home />} />
         {isLoggedIn && <Route path="search" element={<Search />} />}
