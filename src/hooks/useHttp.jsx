@@ -14,7 +14,7 @@ const useHttp = () => {
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
         );
-        dispatch(movieActions.setSearchedQuery(data.results));
+        dispatch(movieActions.setSearchedQuery(sorting(data.results)));
       } catch (error) {
         console.log(error);
       }

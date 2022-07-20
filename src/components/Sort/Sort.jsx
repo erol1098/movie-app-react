@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { movieActions } from "../../store/movie-slice";
 
 function Sort() {
-  const sortKey = useSelector((state) => state.sortKey);
+  const sortKey = useSelector((state) => state.movie.sortKey);
   const dispatch = useDispatch();
   return (
     <Accordion defaultActiveKey="0">
