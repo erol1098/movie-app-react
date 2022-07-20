@@ -17,11 +17,15 @@ const Card = ({ info }) => {
   return (
     <div
       className={`${styles.card} card col-sm-12 col-md-6 col-lg-4 col-xl-3 my-3 rounded-4 `}
-      onClick={() => navigate(`/details/:${id}`, { state: id })}
+      onClick={() => navigate(`/details/${id}`, { state: id })}
     >
       <div className="col-12 ">
         <img
-          src={`https://image.tmdb.org/t/p/w500${url}`}
+          src={
+            url
+              ? `https://image.tmdb.org/t/p/w500${url}`
+              : "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+          }
           className="card-img-top img-thumbnail my-3 rounded-4"
           alt="..."
         />

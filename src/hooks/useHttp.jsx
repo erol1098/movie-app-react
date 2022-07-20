@@ -24,7 +24,8 @@ const useHttp = () => {
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
         );
-        dispatch(movieActions.setMovieDetails(data.results));
+
+        dispatch(movieActions.setMovieDetails(data));
       } catch (error) {
         console.log(error);
       }
