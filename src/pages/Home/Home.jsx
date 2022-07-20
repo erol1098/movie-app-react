@@ -12,7 +12,7 @@ const Home = () => {
   const movies = useSelector((state) => state.movie.discover);
   return (
     <main className="container mt-5">
-      <div className="row mx-2">
+      <div className="row ">
         {movies?.map((movie) => (
           <Card key={movie.id} info={movie} />
         ))}

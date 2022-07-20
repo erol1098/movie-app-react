@@ -16,7 +16,7 @@ const Card = ({ info }) => {
 
   return (
     <div
-      className={`${styles.card} card pointer col-sm-12 col-md-6 col-lg-4 col-xl-3 my-4 px-3`}
+      className={`${styles.card} card pointer col-sm-12 col-md-6 col-lg-4 col-xl-3 my-4 px-3 `}
       onClick={() => navigate(`/details/:${id}`, { state: id })}
     >
       <img
@@ -32,12 +32,25 @@ const Card = ({ info }) => {
       {isLoggedIn && (
         <>
           <div
-            className={`${styles.content} card-body bg-light px-3 border rounded-3`}
+            className={`${styles.content} card-body bg-light  px-3 border rounded-3`}
+            style={{ "--bs-bg-opacity": ".9" }}
           >
-            <p className="card-text lead m-0 ">{overview}</p>
+            <p className="card-text lead m-0">{overview}</p>
           </div>
 
-          <span className="badge rounded-pill bg-danger">{vote}</span>
+          <span
+            className={`badge rounded-pill ${
+              vote < 2.5
+                ? "bg-danger"
+                : vote <= 5
+                ? "bg-warning"
+                : vote <= 7.5
+                ? "bg-info"
+                : "bg-success"
+            }`}
+          >
+            {vote}
+          </span>
         </>
       )}
     </div>

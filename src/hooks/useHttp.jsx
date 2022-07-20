@@ -2,9 +2,10 @@ import axios from "axios";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { movieActions } from "../store/movie-slice";
-
+import useSort from "./useSort";
 const useHttp = () => {
   const dispatch = useDispatch();
+  const { sorting } = useSort();
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   const searchMovies = useCallback(
@@ -38,7 +39,7 @@ const useHttp = () => {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
       );
-      dispatch(movieActions.setDiscover(data.results));
+      dispatch(movieActions.setDiscover(sorting(data.results)));
     } catch (error) {
       console.log(error);
     }
