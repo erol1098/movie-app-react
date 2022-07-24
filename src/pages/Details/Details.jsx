@@ -9,7 +9,6 @@ const Details = () => {
   const { getMovieDetails } = useHttp();
   const { id } = useParams();
   const movieDetails = useSelector((state) => state.movie.movieDetails);
-  console.log("wwqdd", movieDetails);
   const url = `https://image.tmdb.org/t/p/w500${movieDetails?.backdrop_path}`;
 
   useEffect(() => {
