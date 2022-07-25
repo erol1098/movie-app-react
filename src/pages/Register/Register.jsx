@@ -39,7 +39,16 @@ const Register = () => {
           message={error.response.data.error.message}
         />
       )}
-      <form className="container mt-5 w-25" onSubmit={submitHandler}>
+      <form
+        className="container mt-5 w-100 px-4 pt-4 pb-3 rounded-3 bg-light"
+        style={{
+          maxWidth: "40rem",
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+        }}
+        onSubmit={submitHandler}
+      >
+        {" "}
+        <h3 className="text-center mb-3">Register</h3>
         <div className="form-floating mb-3">
           <input
             type="text"

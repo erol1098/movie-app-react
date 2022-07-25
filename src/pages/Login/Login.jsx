@@ -40,10 +40,14 @@ const Login = () => {
       )}
 
       <form
-        className="container mt-5 w-100"
-        style={{ maxWidth: "40rem" }}
+        className="container mt-5 w-100 px-4 pt-4 pb-3 rounded-3 bg-light"
+        style={{
+          maxWidth: "40rem",
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+        }}
         onSubmit={submitHandler}
       >
+        <h3 className="text-center mb-3">Login</h3>
         <div className="form-floating mb-3">
           <input
             type="email"
