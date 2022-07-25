@@ -20,7 +20,7 @@ const Details = () => {
       className={`d-flex ${styles.main}`}
       style={{ backgroundImage: `url(${url})` }}
     >
-      <div className={`d-flex align-items-center ${styles.gradient}`}>
+      <div className={`d-flex ${styles.gradient}`}>
         <DetailCard info={movieDetails} />
       </div>
     </main>
