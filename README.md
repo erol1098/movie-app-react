@@ -39,7 +39,7 @@
 
 ## Features
 
-- In this project, it is aimed to create blog posts using Firestore database and display them on the dashboard. Adding, deleting and updating blog posts can be done. Blog posts can be "liked" by users. In addition, Firebase was used for login and authorization processes.
+-  This project, it is aimed to display films' information by using the TMDb API. There is a search feature according to the entered word and sorting films according to various features.  There is also a detail page for all movies. Firebase was used for login and authorization processes.
 
 ## How To Use
 
