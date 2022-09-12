@@ -1,6 +1,3 @@
-
-
-
 <!-- Please update value in the {}  -->
 <h1 align="center"> BlockBuster </h1>
 <div align="center">
